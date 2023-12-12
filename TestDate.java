@@ -12,12 +12,20 @@ class TestDate {
         System.out.println("Please fill a day (1-31) :");
         int day = sc.nextInt();
         System.out.println("Please fill a month (1-12) :");
-        int month = sc.nextInt();
+        int month = sc.nextInt() -1;
         System.out.println("Please fill a year :");
         int year = sc.nextInt();
         sc.close();
 
         // TODO : your code after this line
-        
+        Calendar calendar = new GregorianCalendar(year, month, day);
+
+        SimpleDateFormat sdf = new SimpleDateFormat("MM-dd-yyyy");
+        Date date = calendar.getTime();
+
+        int dayOfWeek = calendar.get(Calendar.DAY_OF_WEEK);
+
+        System.out.println("The date is : " + sdf.format(date));
+        System.out.println("The day of week is : " + dayOfWeek);
     }
 }
